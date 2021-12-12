@@ -4,6 +4,8 @@ import './UserInterface.css';
 const UserInterface = () => {
   const user1 = 'X',
     user2 = 'O';
+  const [userX, setUserX] = useState('');
+  const [userO, setUserO] = useState('');
   const [win, setWin] = useState(false);
   const [turn, setTurn] = useState(true);
   const [val1, setVal1] = useState('');
@@ -28,7 +30,7 @@ const UserInterface = () => {
       (val4 === user1 && val5 === user1 && val6 === user1) ||
       (val7 === user1 && val8 === user1 && val9 === user1)
     ) {
-      setWinner('Winner : X');
+      setWinner(userX ? `Winner : ${userX} ` : 'Winner: X');
       setWin(true);
     } else if (
       (val1 === user2 && val2 === user2 && val3 === user2) ||
@@ -40,7 +42,7 @@ const UserInterface = () => {
       (val4 === user2 && val5 === user2 && val6 === user2) ||
       (val7 === user2 && val8 === user2 && val9 === user2)
     ) {
-      setWinner('Winner : O');
+      setWinner(userO ? `Winner : ${userO} ` : 'Winner: O');
       setWin(true);
     } else {
       if (
@@ -59,10 +61,42 @@ const UserInterface = () => {
         setWinner('Draw');
       }
     }
-  }, [val1, val2, val3, val4, val5, val6, val7, val8, val9]);
+  }, [val1, val2, val3, val4, val5, val6, val7, val8, val9, userX, userO]);
 
   return (
-    <div>
+    <div className='outer'>
+      <div className='inputButtons'>
+        <div className='input-group mb-3'>
+          <div className='input-group-text' id='btnGroupAddon'>
+            X
+          </div>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='Enter Player 1 Name'
+            aria-describedby='btnGroupAddon'
+            onChange={(e) => {
+              e.preventDefault();
+              setUserX(e.target.value);
+            }}
+          />
+        </div>
+        <div className='input-group mb-3'>
+          <div className='input-group-text' id='btnGroupAddon'>
+            O
+          </div>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='Enter Player 2 Name'
+            aria-describedby='btnGroupAddon'
+            onChange={(e) => {
+              e.preventDefault();
+              setUserO(e.target.value);
+            }}
+          />
+        </div>
+      </div>
       <div className='head'>
         <h2 className='title'>Turn: {turn ? user1 : user2}</h2>
         <button
