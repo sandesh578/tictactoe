@@ -302,6 +302,9 @@ const UserInterface = () => {
       <div>
         <h3 className='title'>{winner}</h3>
       </div>
+      <div className='intro'>
+        <h6 style={{ color: 'black' }}>Designed by Sandesh Parajuli</h6>
+      </div>
     </div>
   );
 };

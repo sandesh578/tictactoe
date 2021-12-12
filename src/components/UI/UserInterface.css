@@ -25,8 +25,8 @@
 }
 
 .head {
-  margin: 10px;
   color: aliceblue;
+  margin-bottom: 10px;
 }
 
 .title {
@@ -34,4 +34,9 @@
   color: rgb(34, 8, 148);
   margin: 10px;
   font-size: larger;
+}
+
+.intro {
+  margin-top: 25px;
+  margin-bottom: 0px;
 }
