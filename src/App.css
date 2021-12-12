@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.App .headline {
+  font-weight: bold;
+  color: rgb(168, 8, 8);
+  font-size: 30px;
+}
